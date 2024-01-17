@@ -1,2 +1,2 @@
 # ML_Classification4BreastCancer
-Comparison of different machine learning models for breast cancer prediction
+Implementation of different machine learning prediction models to diagnose breast cancer
