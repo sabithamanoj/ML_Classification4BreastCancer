@@ -4,6 +4,7 @@ import seaborn as sns
 import logging
 import os
 import argparse
+import numpy as np
 
 
 def main(input_file):
@@ -82,6 +83,18 @@ def main(input_file):
     save_piechart_path = save_dir + '/' + 'diagnosis_pie_chart.png'
     plt.title('Diagnosis Pie Chart')
     plt.savefig(save_piechart_path)
+
+    # To plot correlation heatmap
+    plt.figure(figsize=(8, 8))
+    cor = X.corr()
+    # To mask upper triangle of correlation matrix
+    mask = np.triu(np.ones_like(cor, dtype=np.bool_))
+    sns.heatmap(cor, mask=mask)
+    save_heatmap_path = save_dir + '/' + 'corr_heatmap.png'
+    plt.xticks(fontsize=4)
+    plt.yticks(fontsize=4)
+    plt.savefig(save_heatmap_path)
+
 
     '''
     # Analyze the age distribution
